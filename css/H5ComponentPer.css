@@ -1,0 +1,18 @@
+/*雷达图*/
+.h5_component_per{
+
+}
+.h5_component_per canvas{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.h5_component_per .text{
+    position:absolute;
+    text-align: center;
+    z-index:99;
+    height: 24px;
+    transiton:all 1s;
+}

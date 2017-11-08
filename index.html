@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>IT教育网</title>
+
+    <!-- 载入所有的组件资源-->
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.fullPage.js"></script>
+
+    <!--加载h5组件相关资源-->
+
+    <script type="text/javascript">
+        var res=[
+                'Base','Bar','Bar_v','Point','Polyline','Radar','Per','Ring'
+        ];
+        var html=[];
+        for(s in res){
+            html.push('<script type="text/javascript" src="js/H5Component'+res[s]+'.js"><\/script>');
+            html.push('<link rel="stylesheet" href="css/H5Component'+res[s]+'.css" type="text/css">');
+        }
+    document.write(html.join('') );
+
+    </script>
+
+    <!-- 加载H5对象进行内容管理-->
+    <script type="text/javascript" src="js/h5.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/test-H5.css">
+
+    <!--页面逻辑的样式 -->
+    <style type="text/css">
+        body{
+            margin:0;
+            padding:0;
+        }
+        .h5_page_face{
+            background:url(imgs/face_bg.png);
+        }
+        .h5_component_name_slogan{
+            -webkit-animation:rock 2s infinite 2s;
+            -o-animation:rock 2s infinite 2s;
+            animation:rock 2s infinite 2s;
+        }
+        @-webkit-keyframes rock{
+            0%{  transform:rotate(0deg)  }
+            5%{  transform:rotate(3deg)  }
+            10%{  transform:rotate(-4deg)  }
+            15%{  transform:rotate(3deg)  }
+            20%{  transform:rotate(-2deg)  }
+            25%{  transform:rotate(1deg)  }
+            30%{  transform:rotate(-1deg)  }
+            70%{  transform:rotate(0deg)  }
+            100%{  transform:rotate(0deg)  }
+        }
+    </style>
+
+<script type="text/javascript">
+
+    $(function(){
+        var ppt=new H5();
+        ppt.addPage('face')
+                .addComponent('topic',{
+                    width:395,
+                    height:130,
+                    center:true,
+                    bg:'imgs/face_logo.png',
+                    css:{opacity:0},
+                    animateIn:{top:100, opacity:1},
+                    animateOut:{top:0, opacity:0}
+                })
+                .addComponent('slogan',{
+                    center:true,
+                    width:365,
+                    height:99,
+                    bg:'imgs/face_slogan.png',
+                    css:{opacity:0, top:180},
+                    animateIn:{left:'50%', opacity:1},
+                    animateOut:{left:0,opacity:0},
+                    delay:500
+                })
+                .addComponent('face_img_left',{
+                    width:370,
+                    height:493,
+                    bg:'imgs/face_img_left.png',
+                    css:{opacity:0,left:-50,bottom:-50},
+                    animateIn:{left:0,bottom:0,opacity:1},
+                    animateOut:{left:-50,bottom:-50,opacity:0},
+                    delay:1000
+                })
+                .addComponent('face_img_right',{
+                    width:276,
+                    height:449,
+                    bg:'imgs/face_img_right.png',
+                    css:{opacity:0,right:-50,bottom:-50},
+                    animateIn:{right:0,bottom:0,opacity:1},
+                    animateOut:{right:-50,bottom:-50,opacity:0},
+                    delay:1000
+                })
+
+                .addPage()
+                .addComponent('caption',{
+                    text:'核心理念',
+                })
+
+                .loader(2);
+    })
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
